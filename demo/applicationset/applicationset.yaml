@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argotest
+  name: argohelm
 spec:
   generators:
     - list:
@@ -11,7 +11,7 @@ spec:
           - namespace: prd
   template:
     metadata:
-      name: '{{namespace}}-argocd-helm'
+      name: '{{namespace}}-argohelm'
     spec:
       project: default
       source:
@@ -21,7 +21,6 @@ spec:
         helm:
           releaseName: argotest
           valueFiles:
-            - values.yaml
             - configs/tst/values.yaml
             - configs/prd/values.yaml
             - configs/cq/values.yaml
