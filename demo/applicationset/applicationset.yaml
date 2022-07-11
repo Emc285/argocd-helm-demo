@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: poc-app
+  name: argotest
 spec:
   generators:
     - list:
@@ -11,7 +11,7 @@ spec:
           - namespace: prd
   template:
     metadata:
-      name: '{{"{{"}}namespace{{"}}"}}-poc-app'
+      name: '{{"{{"}}namespace{{"}}"}}-argotest'
     spec:
       project: default
       source:
@@ -19,9 +19,12 @@ spec:
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
         helm:
-          releaseName: poc-app
+          releaseName: argotest
           valueFiles:
             - values.yaml
+            - configs/tst/values.yaml
+            - configs/prd/values.yaml
+            - configs/cq/values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{"{{"}}namespace{{"}}"}}'
