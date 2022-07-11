@@ -5,11 +5,12 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    - list:
-      elements:
-        - namespace: cq
-        - namespace: tst
-        - namespace: prd
+  - git:
+      repoURL: https://github.com/Emc285/argocd-helm-demo.git
+      revision: HEAD
+      directories:
+        # here it will read the paths under configs and the subpaths under the config paths
+        - path: demo/configs/tst
   template:
     metadata:
       name: beta
@@ -21,7 +22,7 @@ spec:
 #          valueFiles:
 #            - "demo/configs/tst/values.yaml"
 ##            - "configs/{{path[2]}}/values.yaml"
-        path: demo/configs/tst
+        path: demo
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
       destination:
