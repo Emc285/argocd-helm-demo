@@ -11,11 +11,11 @@ spec:
           - namespace: prd
   template:
     metadata:
-      name: '{{"{{"}}namespace{{"}}"}}-argotest'
+      name: '{{namespace}}-argocd-helm'
     spec:
       project: default
       source:
-        path: config
+        path: 'configs/{{namespace}}'
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
         helm:
@@ -27,4 +27,4 @@ spec:
             - configs/cq/values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{"{{"}}namespace{{"}}"}}'
+        namespace: '{{namespace}}'
