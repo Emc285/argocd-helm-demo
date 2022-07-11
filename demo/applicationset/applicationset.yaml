@@ -18,8 +18,8 @@ spec:
       source:
 #          # specify different values file based on directories variables
 #          valueFiles:
-#            - "demo/configs/tst/valuestst.yaml"
-##            - "configs/{{path[2]}}/valuestst.yaml"
+#            - "demo/configs/tst/values.yaml"
+##            - "configs/{{path[2]}}/values.yaml"
         path: demo
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
