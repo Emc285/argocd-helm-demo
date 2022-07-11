@@ -1,22 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: demo
+  name: demo-applicationset
   namespace: argocd
 spec:
   generators:
     - list:
-    - git:
-        repoURL: https://github.com/Emc285/argocd-helm-demo.git
-        revision: HEAD
-        directories:
-          # here it will read the paths under configs and the subpaths under the config paths
-          - path: configs/tst
+      elements:
+        - namespace: cq
+        - namespace: tst
+        - namespace: prd
   template:
     metadata:
-      namespace: argocd
-      # you can use the path strings with / delimiter as variables
-      name: "{{path[2]}}-{{path.basename}}"
+      name: '{{namespace}}-demo'
     spec:
       project: default
       source:
