@@ -5,15 +5,14 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/Emc285/argocd-helm-demo.git
-      revision: HEAD
-      directories:
-        # here it will read the paths under configs and the subpaths under the config paths
-        - path: demo/configs/tst
+    - list:
+      elements:
+        - namespace: cq
+        - namespace: tst
+        - namespace: prd
   template:
     metadata:
-      name: beta
+      name: '{{"{{"}}namespace{{"}}"}}-poc-app'
     spec:
       project: default
       source:
@@ -25,8 +24,12 @@ spec:
         path: demo
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
+        releaseName: poc-app
+        valueFiles:
+          - values.yaml
+          - values-{{"{{"}}namespace{{"}}"}}.yaml
       destination:
         # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
         # will deploy to different namespaces as different destinations
-        namespace: '{{path.basename}}'
+        namespace: '{{"{{"}}namespace{{"}}"}}'
