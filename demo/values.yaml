@@ -1,0 +1,14 @@
+namespaces:
+  - prd
+  - cq
+  - tst
+
+name: hulk
+
+service:
+  type: NodePort
+  port: 30008
+
+image:
+  repository: amralaayassen/helm-app
+  pullPolicy: IfNotPresent
