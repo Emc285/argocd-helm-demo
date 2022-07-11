@@ -1,0 +1,14 @@
+#namespaces:
+#  - prd
+#  - cq
+#  - tst
+#
+#name: hulk
+#
+#service:
+#  type: ClusterIP
+#  port: 80
+#
+#image:
+#  repository: amralaayassen/helm-app
+#  pullPolicy: IfNotPresent
