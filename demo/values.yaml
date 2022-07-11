@@ -6,8 +6,8 @@ namespaces:
 name: hulk
 
 service:
-  type: ClusterIP
-  port: 80
+  type: NodePort
+  port: ""
 
 image:
   repository: amralaayassen/helm-app
