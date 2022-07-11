@@ -27,7 +27,7 @@ spec:
         releaseName: poc-app
         valueFiles:
 #          - values.yaml
-          - demo/configs/tst/values.yaml
+          - configs/tst/values.yaml
       destination:
         # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
