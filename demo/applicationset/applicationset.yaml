@@ -18,18 +18,18 @@ spec:
       source:
 #          # specify different values file based on directories variables
 #          valueFiles:
-#            - "demo/configs/tst/values.yaml"
-##            - "configs/{{path[2]}}/values.yaml"
+#            - "demo/configs/tst/valuestst.yaml"
+##            - "configs/{{path[2]}}/valuestst.yaml"
         path: demo
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
         helm:
           releaseName: poc-app
           valueFiles:
-            - values.yaml
-            - configs/tst/values.yaml
+            - valuestst.yaml
+            - valuestst.yaml
       destination:
         # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
         # will deploy to different namespaces as different destinations
-        namespace: '{{"{{"}}namespace{{"}}"}}'
+        namespace: tst
