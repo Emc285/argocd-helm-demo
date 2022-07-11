@@ -16,7 +16,6 @@ spec:
     spec:
       project: default
       source:
-        helm:
 #          # specify different values file based on directories variables
 #          valueFiles:
 #            - "demo/configs/tst/values.yaml"
@@ -24,10 +23,11 @@ spec:
         path: demo
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
-        releaseName: poc-app
-        valueFiles:
-#          - values.yaml
-          - configs/tst/values.yaml
+        helm:
+          releaseName: poc-app
+          valueFiles:
+            - values.yaml
+            - configs/tst/values.yaml
       destination:
         # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
