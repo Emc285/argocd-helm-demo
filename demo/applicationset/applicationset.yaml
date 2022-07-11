@@ -16,11 +16,11 @@ spec:
     spec:
       project: default
       source:
-        helm:
-          # specify different values file based on directories variables
-          valueFiles:
-            - "demo/configs/tst/values.yaml"
-#            - "configs/{{path[2]}}/values.yaml"
+#        helm:
+#          # specify different values file based on directories variables
+#          valueFiles:
+#            - "demo/configs/tst/values.yaml"
+##            - "configs/{{path[2]}}/values.yaml"
         path: demo/configs/tst
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
