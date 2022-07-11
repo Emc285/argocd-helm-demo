@@ -12,7 +12,7 @@ spec:
         - namespace: prd
   template:
     metadata:
-      name: '{{namespace}}-sample-app'
+      name: beta
     spec:
       project: default
       source:
