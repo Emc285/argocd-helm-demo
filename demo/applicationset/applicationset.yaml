@@ -18,8 +18,6 @@ spec:
         path: 'configs/{{namespace}}'
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
-        helm:
-          releaseName: argotest
           valueFiles:
             - configs/tst/values.yaml
             - configs/prd/values.yaml
