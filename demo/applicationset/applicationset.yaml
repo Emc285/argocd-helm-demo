@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-#        helm:
+        helm:
 #          # specify different values file based on directories variables
 #          valueFiles:
 #            - "demo/configs/tst/values.yaml"
