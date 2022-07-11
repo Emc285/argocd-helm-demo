@@ -25,7 +25,7 @@ spec:
           valueFiles:
             - "demo/configs/tst/values.yaml"
 #            - "configs/{{path[2]}}/values.yaml"
-        path: demo
+        path: demo/configs/tst
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
       destination:
