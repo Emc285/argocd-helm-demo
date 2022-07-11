@@ -7,7 +7,7 @@ name: hulk
 
 service:
   type: NodePort
-  port: ""
+  port: 30008
 
 image:
   repository: amralaayassen/helm-app
