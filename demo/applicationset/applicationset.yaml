@@ -11,12 +11,12 @@ spec:
         revision: HEAD
         directories:
           # here it will read the paths under configs and the subpaths under the config paths
-          - path: configs/app-hulk/tst
+          - path: configs/tst
   template:
     metadata:
       namespace: argocd
       # you can use the path strings with / delimiter as variables
-      name: bla
+      name: "{{path[2]}}-{{path.basename}}"
     spec:
       project: default
       source:
