@@ -24,10 +24,10 @@ spec:
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
         helm:
-          releaseName: poc-app
           valueFiles:
-            - valuestst.yaml
-            - valuestst.yaml
+            - values.yaml
+          values: |-
+            {{values}}
       destination:
         # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
