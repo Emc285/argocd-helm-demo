@@ -1,35 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: demo-applicationset
-  namespace: argocd
+  name: example
 spec:
   generators:
     - list:
-      elements:
-        - namespace: cq
-        - namespace: tst
-        - namespace: prd
+        elements:
+          - namespace: tst
+            name: demo-applicationset-values
+          - namespace: cq
+            name: demo-applicationset-values
+          - namespace: prd
+            name: demo-applicationset-values
   template:
     metadata:
-      name: '{{"{{"}}namespace{{"}}"}}-poc-app'
+      name: '{{name}}-example'
     spec:
       project: default
       source:
-          # specify different values file based on directories variables
-          valueFiles:
-            - "values.yaml"
-            - "valuestest.yaml"
+        repoURL: https://github.com/Emc285/demo-applicationset-values.git
+        targetRevision: main
         path: demo
-        repoURL: https://github.com/Emc285/argocd-helm-demo.git
-        targetRevision: HEAD
-#        helm:
-#          valueFiles:
-#            - values.yaml
-#          values: |-
-#            {{values}}
       destination:
-        # default cluster as destination, you can define multiple clusters in ArgoCD UI
         server: https://kubernetes.default.svc
-        # will deploy to different namespaces as different destinations
-        namespace: tst
+        namespace: '{{namespace}}'
