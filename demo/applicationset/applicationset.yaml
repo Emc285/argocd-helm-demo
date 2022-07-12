@@ -7,14 +7,12 @@ spec:
     - list:
         elements:
           - namespace: tst
-            url: https://kubernetes.default.svc
           - namespace: cq
-            url: https://kubernetes.default.svc
-          - namespace: prd
-            url: https://kubernetes.default.svc
+#          - namespace: prd
+#            url: https://kubernetes.default.svc
   template:
     metadata:
-      name: '{{"{{"}}namespace{{"}}"}}-poc-app'
+      name: poc-app
     spec:
       project: default
       source:
@@ -25,7 +23,7 @@ spec:
           releaseName: poc-app
           valueFiles:
             - valuesxyz.yaml
-            - values-{{"{{"}}namespace{{"}}"}}.yaml
+            - 'values-{{namespace}}.yaml'
       destination:
-        server: '{{"{{"}}url{{"}}"}}'
-        namespace: '{{"{{"}}namespace{{"}}"}}'
+        server: https://kubernetes.default.svc
+        namespace: tst
