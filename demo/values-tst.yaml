@@ -1,3 +1,5 @@
+replicaCount: 5
+
 namespace:
   - tst
 
