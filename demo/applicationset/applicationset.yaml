@@ -21,10 +21,10 @@ spec:
         path: demo
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
-          valueFiles:
-            - values-cq.yaml
-            - values-tst.yaml
-            - valuesxyz.yaml
+#          valueFiles:
+#            - values-cq.yaml
+#            - values-tst.yaml
+#            - valuesxyz.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
