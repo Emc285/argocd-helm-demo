@@ -24,7 +24,7 @@ spec:
           valueFiles:
             - valuesxyz.yaml
             - 'values-{{ namespace }}.yaml'
-            - demo/configs/prd/values.yaml
+            - configs/prd/values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{ namespace }}'
