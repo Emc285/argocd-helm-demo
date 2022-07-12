@@ -1,7 +1,4 @@
-replicaCount: 5
-
-namespace:
-  - tst
+replicaCount: 2
 
 name: ""
 

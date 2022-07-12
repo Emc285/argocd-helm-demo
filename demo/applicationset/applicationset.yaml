@@ -18,13 +18,13 @@ spec:
     spec:
       project: default
       source:
-        path: 'configs/{{namespace}}'
+        path: demo
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
           valueFiles:
-            - configs/tst/valuesxyz.yaml
-            - configs/prd/valuesxyz.yaml
-            - configs/cq/valuesxyz.yaml
+            - values-cq.yaml
+            - values-tst.yaml
+            - valuesxyz.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'
