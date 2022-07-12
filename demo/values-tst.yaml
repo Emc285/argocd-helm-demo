@@ -1,6 +1,6 @@
 replicaCount: 2
 
-name: ""
+name: tst
 
 service:
   type: NodePort
