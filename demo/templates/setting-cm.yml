@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.name }}-settings
 data:
   settings.ini: |
-    # possible values : production, development, staging, qa
+    # possible values : prd, cq, tst
     app_mode = {{ .Values.appMode }}
     [security]
     # Path to SSL certificates

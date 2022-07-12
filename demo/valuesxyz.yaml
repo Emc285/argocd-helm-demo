@@ -3,7 +3,7 @@ namespaces:
   - cq
   - tst
 
-name: hulk
+name: ""
 
 service:
   type: NodePort
