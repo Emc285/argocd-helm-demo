@@ -4,11 +4,14 @@ metadata:
   name: argohelm
 spec:
   generators:
-    - list:
-        elements:
-          - namespace: tst
-          - namespace: cq
-          - namespace: prd
+    # matrix 'parent' generator
+    - matrix:
+        generators:
+          - list:
+              elements:
+                - namespace: tst
+                - namespace: cq
+                - namespace: prd
   template:
     metadata:
       name: '{{namespace}}-argohelm'
@@ -19,9 +22,9 @@ spec:
         repoURL: https://github.com/Emc285/argocd-helm-demo.git
         targetRevision: HEAD
           valueFiles:
-            - configs/tst/values.yaml
-            - configs/prd/values.yaml
-            - configs/cq/values.yaml
+            - configs/tst/valuesxyz.yaml
+            - configs/prd/valuesxyz.yaml
+            - configs/cq/valuesxyz.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{namespace}}'

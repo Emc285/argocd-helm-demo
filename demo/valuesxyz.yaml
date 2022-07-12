@@ -1,9 +1,9 @@
-namespaces:
+namespace:
   - prd
   - cq
   - tst
 
-name: hulk
+name: ""
 
 service:
   type: NodePort
