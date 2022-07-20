@@ -20,6 +20,8 @@ service:
   type: NodePort
   port: 30007
 
+tag:
+  versãoServiço:
 
 ## Application level settings  
 appMode: cq
