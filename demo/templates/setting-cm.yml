@@ -1,7 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.name }}-settings
+  name: {{ include "sample-app.fullname" . }}
+  labels:
+  {{- include "sample-app.labels" . | nindent 4 }}
 data:
   settings.ini: |
     # possible values : prd, cq, tst
